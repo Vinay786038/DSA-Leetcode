@@ -1,22 +1,23 @@
 class Solution {
 public:
+    //declare 2D vector globally
     vector<vector<string> >ans;
-    bool issafe(int row,int col,vector<string>board,int n)
+    bool issafe(int row,int col,vector<string>&board,int n)
     {
         //check column
-        for(int i=0;i<row;i++)
+        for(int i=row;i>=0;i--)
         {
             if(board[i][col]=='Q')
             return false;
         }
         //upper left diagonal
-        for(int i=row-1,j=col-1;i>=0&&j>=0;i--,j--)
+        for(int i=row,j=col;i>=0&&j>=0;i--,j--)
         {
             if(board[i][j]=='Q')
             return false;
         }
-        //upper right diagona
-        for(int i=row-1,j=col+1;i>=0&&j<n;i--,j++)
+        //upper right diagonal
+        for(int i=row,j=col;i>=0&&j<n;i--,j++)
         {
             if(board[i][j]=='Q')
             return false;
@@ -36,11 +37,12 @@ public:
             {
                 board[row][col]='Q';
                 solve(row+1,board,n);
-                board[row][col]='.';//backtrack
+                board[row][col]='.';
             }
         }
-
+        return;
     }
+
     vector<vector<string>> solveNQueens(int n)
     {
         vector<string>board(n,string(n,'.'));
