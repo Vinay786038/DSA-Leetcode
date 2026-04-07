@@ -17,7 +17,7 @@ public:
             }
         }
         return 0;
-        */
+        
         set<int>s;
         s.insert(nums[0]);
         for(int i=1;i<n;i++)
@@ -27,7 +27,25 @@ public:
             if(s.size()==size)
             return nums[i];
         }
-        return 0;
+        return 0;*/
+        int slow=0;
+        int fast=0;
+        while(true)
+        {
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+            if(slow==fast)
+            break;
+        }
+        slow=0;
+        while(true)
+        {
+            slow=nums[slow];
+            fast=nums[fast];
+            if(slow==fast)
+            return slow;
+        }
+        return -1;
 
     }
 };
