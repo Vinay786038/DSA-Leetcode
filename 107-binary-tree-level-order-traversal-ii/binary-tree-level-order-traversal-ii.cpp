@@ -22,7 +22,7 @@ public:
         {
             vector<int>vec;
             int size=q.size();
-            while(size>0)
+            for(int i=0;i<size;i++)
             {
                 TreeNode* temp=q.front();
                 q.pop();
@@ -31,7 +31,6 @@ public:
                 q.push(temp->left);
                 if(temp->right!=NULL)
                 q.push(temp->right);
-                size--;
             }
             ans.push_back(vec);
         }
