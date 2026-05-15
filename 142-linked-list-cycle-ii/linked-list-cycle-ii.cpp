@@ -10,14 +10,15 @@ class Solution {
 public:
     ListNode *detectCycle(ListNode *head)
     {
-        int index=0;
-        map<ListNode*, int>mp;
+        if(head==NULL||head->next==NULL)
+        return NULL;
+        unordered_set<ListNode*>s;
         ListNode* temp=head;
         while(temp!=NULL)
         {
-            if(mp.find(temp)!=mp.end())
+            if(s.count(temp)==1)
             return temp;
-            mp[temp]=1;
+            s.insert(temp);
             temp=temp->next;
         }
         return NULL;
