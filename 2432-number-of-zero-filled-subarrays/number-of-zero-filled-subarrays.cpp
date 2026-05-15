@@ -10,14 +10,10 @@ public:
             if(nums[i]==0)
             {
                 x++;
+                count+=x;
             }
-            if(nums[i]!=0)
-            {
-                count+=x*(x+1)/2;
-                x=0;
-            }
-            if(i==n-1)
-            count+=x*(x+1)/2;
+            else
+            x=0;
 
         }
         return count;
