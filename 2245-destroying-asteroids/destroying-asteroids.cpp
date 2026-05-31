@@ -4,11 +4,11 @@ public:
     {
         sort(asteroids.begin(),asteroids.end());
         long long currmass=mass;
-        for(int x:asteroids)
+        for(int i=0;i<asteroids.size();i++)
         {
-            if(currmass<x)
+            if(currmass<asteroids[i])
             return false;
-            currmass+=x;
+            currmass+=asteroids[i];
         }
         return true;
     }
