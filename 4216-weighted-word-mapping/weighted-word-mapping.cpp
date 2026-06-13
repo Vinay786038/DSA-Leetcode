@@ -9,12 +9,9 @@ public:
             int sum=0;
             for(int j=0;j<s.size();j++)
             {
-                int index=(int)s[j]-97;
-                sum+=weights[index];
+                sum+=weights[(int)s[j]-97];
             }
-            int rem=sum%26;
-            int x=122-rem;
-            ans+=(char)x;
+            ans+=(char)(122-sum%26);
         }
         return ans;
      
