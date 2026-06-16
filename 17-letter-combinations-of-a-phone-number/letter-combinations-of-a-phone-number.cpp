@@ -1,14 +1,14 @@
 class Solution {
 public:
     vector<string>result;
-    void backtrack(string &digits,int index,string &current,unordered_map<char,string>&phone)
+    void backtrack(string &digits,int index,string &current,vector<string>&phone)
     {
         if(index==digits.size())
         {
             result.push_back(current);
             return;
         }
-        string letters=phone[digits[index]];
+        string letters=phone[digits[index]-'0'];
         for(char ch:letters)
         {
             current.push_back(ch);
@@ -22,15 +22,8 @@ public:
         {
             return {};
         }
-        unordered_map<char,string>phone;
-        phone['2']="abc";
-        phone['3']="def";
-        phone['4']="ghi";
-        phone['5']="jkl";
-        phone['6']="mno";
-        phone['7']="pqrs";
-        phone['8']="tuv";
-        phone['9']="wxyz";
+        vector<string>phone={"", "", "abc", "def", "ghi","jkl", "mno", "pqrs", "tuv", "wxyz"};
+
         
         string current="";
         backtrack(digits,0,current,phone);
