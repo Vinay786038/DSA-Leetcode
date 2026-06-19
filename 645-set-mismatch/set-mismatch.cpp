@@ -21,7 +21,11 @@ public:
         for(int i=1;i<=n;i++)
         {
             if(mp[i]==0)
-            vec.push_back(i);
+            {
+                vec.push_back(i);
+                break;
+            }
+            
         }
         return vec;
         
