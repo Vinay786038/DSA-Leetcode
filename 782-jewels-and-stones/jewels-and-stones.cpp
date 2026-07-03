@@ -15,24 +15,11 @@ public:
                 mp1[jewels[i]]=1;
             }
         }
-        map<char,int>mp2;
         for(int i=0;i<stones.size();i++)
         {
-            if(mp2.find(stones[i])!=mp2.end())
+            if(mp1.find(stones[i])!=mp1.end())
             {
-                mp2[stones[i]]++;
-            }
-            else
-            {
-                mp2[stones[i]]=1;
-            }
-        }
-        for(auto x:mp1)
-        {
-            int ch=x.first;
-            if(mp2.find(ch)!=mp2.end())
-            {
-                ans+=mp2[ch];
+                ans++;
             }
         }
         return ans;
