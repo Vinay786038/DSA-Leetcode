@@ -13,7 +13,6 @@ public:
                 sum+=mat[row][i];
                 i++;
                 j--;
-                continue;
             }
             else
             {
