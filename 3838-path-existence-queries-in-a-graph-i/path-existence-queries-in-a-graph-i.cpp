@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<bool> pathExistenceQueries(int n, vector<int>& nums, int maxDiff, vector<vector<int>>& queries) 
-    {
+    {/*
         int size=queries.size();
         vector<bool>ans(size);
         for(int i=0;i<size;i++)
@@ -35,7 +35,22 @@ public:
                 ans[i]=false;
             }
         }
+        return ans;*/
+        vector<int>group(n,0);
+        int x=0;
+        for(int i=1;i<n;i++)
+        {
+            if((nums[i]-nums[i-1])>maxDiff)
+            x++;
+            group[i]=x;
+        }
+        vector<bool>ans;
+        for(auto y:queries)
+        {
+            int u=y[0];
+            int v=y[1];
+            ans.push_back(group[u]==group[v]);
+        }
         return ans;
-        
     }
 };
