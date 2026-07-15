@@ -1,11 +1,16 @@
 class Solution {
 public:
+    int gcd(int a,int b)
+    {
+        if(b==0)
+        return a;
+        return gcd(b,a%b);
+    }
     int gcdOfOddEvenSums(int n)
     {
-        int s,t;
-        s=n*n;
-        t=n*(n+1);
-        return gcd(s,t);
+        int oddsum=n*n;
+        int evensum=n*(n+1);
+        return gcd(evensum,oddsum);
         
     }
 };
