@@ -12,6 +12,8 @@ public:
                 x=gcd(x,nums[j]);
                 if(x==k)
                 ans++;
+                if(x<k)
+                break;
             }
         }
         return ans;       
