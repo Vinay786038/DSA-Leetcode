@@ -11,26 +11,23 @@
  */
 class Solution {
 public:
-    TreeNode* BST(TreeNode* root,int left,int right,vector<int>&nums)
+    TreeNode* BST(int left,int right,vector<int>&nums)
     {
         if(left>right)
         {
             return NULL;
         }
         int mid=left+(right-left)/2;
-        if(root==NULL)
-        {
-            root=new TreeNode(nums[mid]);
-        }
-        root->left=BST(root->left,left,mid-1,nums);
-        root->right=BST(root->right,mid+1,right,nums);
+        TreeNode* root=new TreeNode(nums[mid]);
+        root->left=BST(left,mid-1,nums);
+        root->right=BST(mid+1,right,nums);
         return root;
     }
     TreeNode* sortedArrayToBST(vector<int>& nums)
     {
         TreeNode *root=NULL;
         int n=nums.size();
-        root=BST(root,0,n-1,nums);
+        root=BST(0,n-1,nums);
         return root;
     }
 };
