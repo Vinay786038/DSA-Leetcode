@@ -5,8 +5,7 @@ public:
         int i=0;
         map<int,int>mp;
         int ans=1;
-        mp[nums[0]]=1;
-        for(int j=1;j<nums.size();j++)
+        for(int j=0;j<nums.size();j++)
         {
             mp[nums[j]]++;
             while(mp[nums[j]]>k)
