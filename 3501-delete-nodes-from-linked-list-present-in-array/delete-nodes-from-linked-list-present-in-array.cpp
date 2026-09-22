@@ -17,6 +17,11 @@ public:
         {
             mp[nums[i]]=true;
         }
+        while(mp[head->val]==true)
+        {
+            head=head->next;
+        }
+        /*
         ListNode* head2=NULL;
         ListNode* temp=head;
         ListNode* tail=head2;
@@ -37,7 +42,20 @@ public:
             }
             temp=temp->next;
         }
-        return head2;
+        return head2;*/
+        ListNode* temp=head;
+        while(temp&&temp->next)
+        {
+            if(mp[temp->next->val])
+            {
+                temp->next=temp->next->next;
+            }
+            else
+            {
+                temp=temp->next;
+            }
+        }
+        return head;
         
     }
 };
