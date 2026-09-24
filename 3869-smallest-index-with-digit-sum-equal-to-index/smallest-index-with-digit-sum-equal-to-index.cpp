@@ -1,18 +1,16 @@
 class Solution {
 public:
-    int digitsum(int n)
-    {
-        if(n<=0)
-        {
-            return 0;
-        }
-        return n%10+digitsum(n/10);
-    }
     int smallestIndex(vector<int>& nums)
     {
         for(int i=0;i<nums.size();i++)
         {
-            int ans=digitsum(nums[i]);
+            int ans=0;
+            int n=nums[i];
+            while(n>0)
+            {
+                ans+=n%10;
+                n/=10;
+            }
             if(ans==i)
             {
                 return ans;
